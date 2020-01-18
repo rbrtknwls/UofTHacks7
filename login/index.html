@@ -4,12 +4,11 @@
     <!-- Metaish Data -->
     
 	<head>
-		<title>Robert Knowles</title>
+		<title>THING</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="referrer" content="origin">
         
-		<link id="favicon" rel="shortcut icon" type="image/png" href="img/Favicon/red.png"/>
         
         <link rel="stylesheet" href="../assets/css/bootstrap.css">
         <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
@@ -31,22 +30,35 @@
         
         <!-- Contact Info/Footer -->
         
+        <style>
+        figure{
+           width:300px; /*container-width*/
+           overflow: hidden; /*hide bounds of image */
+           margin:0; /*reset margin of figure tag*/
+        }
+        figure img{
+           display:block; /*remove inline-block spaces*/  
+        }
         
+        </style>
         <div class="justify-content-md-center" style="vertical-align: middle; margin: 10%">
             <div class="jumbotron justify-content-md-center">
               
               <div class="row no-gutters">
                 <div class="col-md-8" style = "margin: 0">
-                    <h1 class="display-4">Hey, <span id = "pername">INSERTNAMEHERE</span></h1>
+                    <div class = "col">
+                        <h3 class="display-1">Hey,</h1> 
+                        <h3 class="display-4" id = "pername">INSERTNAMEHERE</h1>
+                    </div>
                       <hr class>
-                      <p class="lead">Welcome to your personal </p>
+                      <p class="lead">Welcome to your personal bank that has been authenticated using only Biometrics!</p>
 
                       <!-- Type Form -->
 
                 </div>
-                <div class="col-md-4" style = "margin: 0">
+                <div class="col-md-3" style = "margin: 0">
                   <div class="card-body">
-                      <img src="../img/coding.jpg" class="card-img" style = "border-radius: 25%;" alt="...">
+                      <img src="../img/a.png" id = "pers" style = "top: 0px; object-fit: cover; border-radius: 50%; border: 1px solid" height = "300px" width = "300px"alt="...">
                   </div>
                 </div>
               </div>
@@ -66,9 +78,7 @@
         
         
 		<!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="assets/js/bootstrap.js"></script> 
-        <script src="assets/js/scripts.js"></script>
+
         <script src="../assets/js/script.js"></script>
         
         

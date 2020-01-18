@@ -1,7 +1,7 @@
 (function() {
 
-  var width = 320;    // We will scale the photo width to this
-  var height = 0;     // This will be computed based on the input stream
+  var width = 500;    // We will scale the photo width to this
+  var height = 500;     // This will be computed based on the input stream
 
   // |streaming| indicates whether or not we're currently streaming
   // video from the camera. Obviously, we start at false.
@@ -39,7 +39,7 @@
         // the video, so we will make assumptions if this happens.
       
         if (isNaN(height)) {
-          height = width / (4/3);
+          height = width;
         }
       
         video.setAttribute('width', width);
@@ -85,6 +85,11 @@
        
       var data = canvas.toDataURL('image/png');
       photo.setAttribute('src', data);
+        
+      var link = document.createElement('a');
+      link.download = "my-image.png";
+      link.href = data;
+      link.click();
     } else {
       clearphoto();
     }
