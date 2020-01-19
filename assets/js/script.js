@@ -24,12 +24,13 @@
   const dbRefObject = firebase.database().ref().child('recent');
 
 }());
+var ROT = 0;
 function mostrecent(){
     var ref = firebase.database().ref("recent");
     ref.orderByKey().on("child_added", function(snapshot) {
         var idd = snapshot.child("img").val();
         updatebal();
-        
+        rtrans(idd);
         changeimg(idd);
 
     });
@@ -37,7 +38,6 @@ function mostrecent(){
 mostrecent();
 function changeimg(n) {
     
-  
   document.getElementById("pername").innerHTML = n;
   document.getElementById("pers").src = "https://image1213.s3.amazonaws.com/" + n +".jpg"
 }
@@ -50,4 +50,96 @@ function updatebal(){
         
     });
 }
+function deposit(){
+    var moneyf = document.getElementById("dep").value;
+    var ref = firebase.database().ref("recent");
+    var ip = "";
+    
+    
+    ref.orderByKey().on("child_added", function(snapshot) {
+        var id = snapshot.child("img").val();
+        var tmoney = parseInt(snapshot.child("money").val()) + parseInt(moneyf);
+        
+        ip = id;
+        firebase.database().ref('recent/' + id).set({
+                img: id,
+                money: tmoney,
+        });
+        updatebal();
+    });
+    
+    var time1 = Date()
+    
+    firebase.database().ref('tr/' + ip +'/').push({
+            lorw: "l",
+            money: "$" + moneyf,
+            time: time1.toString(),
+    });
+    rtrans(ip);
+}
+
+function withdrawl(){
+    var moneyf = document.getElementById("wit").value;
+    var ref = firebase.database().ref("recent");
+    var ip = "";
+    ref.orderByKey().on("child_added", function(snapshot) {
+        var id = snapshot.child("img").val();
+        var tmoney = snapshot.child("money").val() - moneyf;
+        
+        ip = id;
+        firebase.database().ref('recent/' + id).set({
+                img: id,
+                money: tmoney,
+        });
+        updatebal();
+    });
+    var time1 = Date()
+    
+    firebase.database().ref('tr/' + ip +'/').push({
+            lorw: "w",
+            money: "-$" + moneyf,
+            time: time1.toString(),
+    });
+    rtrans(ip);
+}
+
+function rtrans(place){
+    var ref = firebase.database().ref("tr/" + place);
+    cleanup();
+    ref.orderByKey().on("child_added", function(snapshot) {
+        createPostElement(snapshot.child("money").val(), snapshot.child("time").val(),snapshot.child("lorw").val());
+    });
+        
+}
+
+function createPostElement(money, dat, lo){
+    var html = '<div class = "card>' +
+                        '<div class="col-sm-4 pls">' +
+                          '<div id =\"' + lo +'\" class="card blue-grey darken-1">' +
+                            '<div class="card-content white-text">' +
+                              '<h2 style = "text-align: center;margin-top: 10px" class="card-title">' + money +".00" +'</h2>'+
+                              '<hr>' +
+                              '<h6> Date: ' + dat + '</p>'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>' +
+                      '</div>';
+    var newish = document.createElement('div');
+    
+    
+    newish.innerHTML = html;
+    if (ROT %2 == 0){
+        document.getElementById("left").appendChild(newish);
+    } else{
+        document.getElementById("right").appendChild(newish);
+    }
+    ROT++;
+}
+
+function cleanup(){
+    ROT = 0;
+    document.getElementById("left").innerHTML = "";
+    document.getElementById("right").innerHTML = "";
+}
+
 
