@@ -43,12 +43,12 @@
         </style>
         <div class="justify-content-md-center" style="vertical-align: middle; margin: 10%">
             <div class="jumbotron justify-content-md-center">
-              
+
               <div class="row no-gutters">
                 <div class="col-md-8" style = "margin: 0">
                     <div class = "col">
-                        <h1 class="display-3">Hey,</h1> 
-                        <h3 class="display-3" id = "pername">INSERTNAMEHERE</h3>
+                        <h3 class="display-3"><strong>CredID</strong></h3> 
+                        <p class="display-4" id = "pername">INSERTNAMEHERE</p>
                     </div>
 
                       <!-- Type Form -->
@@ -56,17 +56,17 @@
                 </div>
                 <div class="col-md-3" style = "margin: 0">
                   <div class="card-body">
-                      <img src="../img/a.png" id = "pers" style = "top: 0px; object-fit: cover; border-radius: 50%; border: 1px solid" height = "300px" width = "300px"alt="...">
+                      <img src="../img/a.png" id = "pers" style = "top: 0px; object-fit: cover; border-radius: 50%; border: 1px solid" height = "150px" width = "150px"alt="...">
                   </div>
                 </div>
               </div>
-              <hr style = "border: 20px solid">
               <div class="row no-gutters">
                 <div class="col-md-1" style = "margin: 0">
                 </div>
                 <div class="col-md-10" style = "margin: 0">
                     <div class = "card justify-content-md-center">
-                        
+                        <hr style = "border: 20px solid">
+
                     
                       <div class="card-body">
                           <h1 class="display-3" style="text-align:left;float:left;">Balance: &nbsp;</h1> 
@@ -74,23 +74,25 @@
                       </div>
                         </div>
                 </div>
+
                 <div class="col-md-1" style = "margin: 0">
                 </div>
+                                                                
               </div>
               <div class="row no-gutters">
-                <div class="col-md-6" style = "margin: 0">
+                <div class="col-md-4" style = "margin: 0">
                     <div class = "card justify-content-md-center">
                         <div class="card-header">
-                            <h5 class="card-title"><span id = "3">Loan</span></h5>
+                            <h5 class="card-title"><span id = "3">Deposit</span></h5>
                           </div>
                         <input style = "margin: 20px; width: 92%" class="form-control" id="dep" placeholder="Amount of Money to Deposit">
-                        <button onclick = "deposit()" class="btn btn-success">Confirm Loan</button>
+                        <button onclick = "deposit()" class="btn btn-success">Confirm Deposit</button>
                     </div>
 
                       <!-- Type Form -->
 
                 </div>
-                <div class="col-md-6" style = "margin: 0">
+                <div class="col-md-4" style = "margin: 0">
                   <div class = "card justify-content-md-center">
                         <div class="card-header">
                             <h5 class="card-title"><span id = "3">Withdrawal</span></h5>
@@ -99,7 +101,21 @@
                       <button onclick = "withdrawl()" class="btn btn-danger">Confirm Withdrawal</button>
                     </div>
                 </div>
+                
+                
+                
+                <div class="col-md-4" style = "margin: 0">
+                  <div class = "card justify-content-md-center">
+                        <div class="card-header">
+                            <h5 class="card-title"><span id = "3">Loan</span></h5>
+                          </div>
+                        <input style = "margin: 20px; width: 92%" class="form-control" id="wit" placeholder="Amount of Money to Deposit">
+                      <button onclick = "withdrawl()" class="btn btn-blue">Confirm Loan</button>
+                    </div>
+                </div>
               </div>
+                
+                
               <div class = "card justify-content-md-center">
                         <div class="card-header">
                             <h5 class="card-title"><span id = "3">Transaction History</span></h5>
