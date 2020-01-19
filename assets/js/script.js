@@ -28,18 +28,26 @@ function mostrecent(){
     var ref = firebase.database().ref("recent");
     ref.orderByKey().on("child_added", function(snapshot) {
         var idd = snapshot.child("img").val();
-        var monies = snapshot.child("money").val();
-        console.log(monies);
+        updatebal();
         
-        
-        change(idd);
+        changeimg(idd);
 
     });
 }
 mostrecent();
-function change(n) {
+function changeimg(n) {
     
   
   document.getElementById("pername").innerHTML = n;
   document.getElementById("pers").src = "https://image1213.s3.amazonaws.com/" + n +".jpg"
 }
+function updatebal(){
+    var ref = firebase.database().ref("recent");
+    ref.orderByKey().on("child_added", function(snapshot) {
+        var money = snapshot.child("money").val();
+        
+        document.getElementById("balance").innerHTML = money +".00";
+        
+    });
+}
+
