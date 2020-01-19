@@ -1,3 +1,7 @@
+@import url(font-awesome.min.css);
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
+
 /* FANCY TRANSISTION
 -------------------------------------------------- */
 /* Makes the text fade in */
@@ -36,6 +40,19 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+body {
+  background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+  background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+  background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+  background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+  background-repeat: repeat,			no-repeat,			no-repeat;
+  background-size: 100px 100px, cover,				cover;
+  background-position: top left,		center center,		bottom center;
+  background-attachment: fixed,			fixed,				fixed;
+  background-color: rgba(0, 0, 0, 1);
+
+}
+
 .card{
   margin-left: 5%;
   margin-right: 5%;
@@ -52,7 +69,7 @@
 .opening{
   margin-top: 0%;
   margin-bottom: 15%;
-  
+
 }
 
 #themenum{
@@ -62,14 +79,14 @@
 }
 
 .col > h1{
-    
+
   font-size: 180px;
   margin-bottom: 3%;
 
   animation: fadein 1s;
   -moz-animation: fadein 1s; /* Firefox */
   -webkit-animation: fadein 1s; /* Safari and Chrome */
-  -o-animation: fadein 1s; 
+  -o-animation: fadein 1s;
 }
 
 .col > h2, hr{
@@ -77,7 +94,7 @@
   animation: fadein 4s;
   -moz-animation: fadein 4s; /* Firefox */
   -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; 
+  -o-animation: fadein 4s;
 }
 
 #fill{
@@ -85,7 +102,7 @@
   animation: fadein 4s;
   -moz-animation: fadein 4s; /* Firefox */
   -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; 
+  -o-animation: fadein 4s;
 }
 
 /* other
@@ -98,8 +115,8 @@
     position: fixed;
     top: 52%;
     left: 1.5%;
-    
-    
+
+
 }
 .thl{
     position: fixed;
@@ -151,12 +168,12 @@
   animation: fadein 4s;
   -moz-animation: fadein 4s; /* Firefox */
   -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; 
+  -o-animation: fadein 4s;
 }
 
 /* Green THEME
 -------------------------------------------------- */
-	
+
 .greenbol{
   color: #8b0000;
   font-weight: bold;
@@ -188,7 +205,7 @@
   animation: fadein 4s;
   -moz-animation: fadein 4s; /* Firefox */
   -webkit-animation: fadein 4s; /* Safari and Chrome */
-  -o-animation: fadein 4s; 
+  -o-animation: fadein 4s;
 }
 
 
@@ -196,20 +213,20 @@
 
 
 
-        
+
 #splash{
-  min-height: 100%; 
+  min-height: 100%;
   min-width: 100%;
   border: none;
 }
 #footer{
-  min-height: 100px; 
+  min-height: 100px;
   min-width: 100%;
   border: none;
-        
+
 }
 #start{
-    background-image: url("img/scroll.png");       
+    background-image: url("img/scroll.png");
 }
 
 
@@ -217,7 +234,7 @@
   text-align: center;
   margin-top: 25%;
 }
-        
+
 .thing{
   background-image: url(img/valc.png), url(img/start.png), url(img/scroll.png);
   background-repeat: no-repeat, no-repeat, repeat;
