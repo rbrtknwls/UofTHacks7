@@ -39,7 +39,7 @@ mostrecent();
 function changeimg(n) {
 
   document.getElementById("pername").innerHTML = n;
-  document.getElementById("pers").src = "https://image1213.s3.amazonaws.com/" + n +".jpg"
+  document.getElementById("pers").src = "https://image1213.s3.us-east-2.amazonaws.com/" + n + ".png";
 }
 function updatebal(){
     var ref = firebase.database().ref("recent");
@@ -96,6 +96,25 @@ function withdrawl(){
     firebase.database().ref('tr/' + ip +'/').push({
             lorw: "w",
             money: "-$" + moneyf,
+            time: time1.toString(),
+    });
+    rtrans(ip);
+}
+function loan(){
+    var moneyf = document.getElementById("loan").value;
+    var ref = firebase.database().ref("recent");
+    var ip = "";
+    ref.orderByKey().on("child_added", function(snapshot) {
+        var id = snapshot.child("img").val();
+
+        ip = id;
+        updatebal();
+    });
+    var time1 = Date()
+
+    firebase.database().ref('tr/' + ip +'/').push({
+            lorw: "d",
+            money: "$" + moneyf,
             time: time1.toString(),
     });
     rtrans(ip);
