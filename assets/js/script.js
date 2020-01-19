@@ -37,7 +37,7 @@ function mostrecent(){
 }
 mostrecent();
 function changeimg(n) {
-    
+
   document.getElementById("pername").innerHTML = n;
   document.getElementById("pers").src = "https://image1213.s3.amazonaws.com/" + n +".jpg"
 }
@@ -45,21 +45,19 @@ function updatebal(){
     var ref = firebase.database().ref("recent");
     ref.orderByKey().on("child_added", function(snapshot) {
         var money = snapshot.child("money").val();
-        
+
         document.getElementById("balance").innerHTML = money +".00";
-        
+
     });
 }
 function deposit(){
     var moneyf = document.getElementById("dep").value;
     var ref = firebase.database().ref("recent");
     var ip = "";
-    
-    
     ref.orderByKey().on("child_added", function(snapshot) {
         var id = snapshot.child("img").val();
         var tmoney = parseInt(snapshot.child("money").val()) + parseInt(moneyf);
-        
+
         ip = id;
         firebase.database().ref('recent/' + id).set({
                 img: id,
@@ -67,9 +65,9 @@ function deposit(){
         });
         updatebal();
     });
-    
+
     var time1 = Date()
-    
+
     firebase.database().ref('tr/' + ip +'/').push({
             lorw: "l",
             money: "$" + moneyf,
@@ -85,7 +83,7 @@ function withdrawl(){
     ref.orderByKey().on("child_added", function(snapshot) {
         var id = snapshot.child("img").val();
         var tmoney = snapshot.child("money").val() - moneyf;
-        
+
         ip = id;
         firebase.database().ref('recent/' + id).set({
                 img: id,
@@ -94,7 +92,7 @@ function withdrawl(){
         updatebal();
     });
     var time1 = Date()
-    
+
     firebase.database().ref('tr/' + ip +'/').push({
             lorw: "w",
             money: "-$" + moneyf,
@@ -103,13 +101,14 @@ function withdrawl(){
     rtrans(ip);
 }
 
+
 function rtrans(place){
     var ref = firebase.database().ref("tr/" + place);
     cleanup();
     ref.orderByKey().on("child_added", function(snapshot) {
         createPostElement(snapshot.child("money").val(), snapshot.child("time").val(),snapshot.child("lorw").val());
     });
-        
+
 }
 
 function createPostElement(money, dat, lo){
@@ -125,8 +124,8 @@ function createPostElement(money, dat, lo){
                         '</div>' +
                       '</div>';
     var newish = document.createElement('div');
-    
-    
+
+
     newish.innerHTML = html;
     if (ROT %2 == 0){
         document.getElementById("left").appendChild(newish);
@@ -141,5 +140,3 @@ function cleanup(){
     document.getElementById("left").innerHTML = "";
     document.getElementById("right").innerHTML = "";
 }
-
-

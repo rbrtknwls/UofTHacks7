@@ -69,13 +69,13 @@ body, p, input, select, textarea {
 }
 
 .row {
-  height: 400px;
-  padding: 0 100px 0 100px;
+  height: 430px;
+  width: 900px;
 }
 
 #center {
   display: block;
-  margin-left: auto;
+  margin-left: 50px;
   margin-right: auto;
   margin-top: 0px;
 }
@@ -104,5 +104,14 @@ body, p, input, select, textarea {
 
 .col-sm-6 {
   background-color: rgba(273, 273, 273, 0.8);
-  padding-top: 30px;
+  padding-top: 45px;
+  padding-bottom: 10px;
+  padding-left: : 50px;
+}
+.vertical-center {
+  margin-left: 300px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
